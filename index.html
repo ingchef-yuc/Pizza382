@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pizza 382 🍕</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #fdfaf6;
+      color: #333;
+    }
+
+    header {
+      background: url('tu-imagen-de-pizza.jpg') center/cover no-repeat;
+      height: 80vh;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    nav {
+      margin-top: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      padding-bottom: 20px;
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      margin: 15px 0 5px;
+    }
+
+    .card p {
+      margin: 5px 0;
+      color: #777;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    footer a {
+      color: #e63946;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Pizza 382 🍕</h1>
+  <p>Auténtico sabor artesanal en Mérida</p>
+  <nav>
+    <a href="#menu">Menú</a>
+    <a href="#snacks">Snacks</a>
+    <a href="#bebidas">Bebidas</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<section id="menu">
+  <h2>🍕 Nuestras Pizzas</h2>
+  <div class="menu-grid">
+    <div class="card">
+      <img src="pizza1.jpg" alt="Pizza Especial">
+      <h3>Pizza Especial</h3>
+      <p>$150 MXN</p>
+    </div>
+    <div class="card">
+      <img src="pizza2.jpg" alt="Pizza Vegetariana">
+      <h3>Pizza Vegetariana</h3>
+      <p>$140 MXN</p>
+    </div>
+    <div class="card">
+      <img src="pizza3.jpg" alt="Pizza Pepperoni">
+      <h3>Pizza Pepperoni</h3>
+      <p>$160 MXN</p>
+    </div>
+  </div>
+</section>
+
+<section id="snacks">
+  <h2>🥗 Snacks</h2>
+  <div class="menu-grid">
+    <div class="card">
+      <img src="ensalada.jpg" alt="Ensalada fresca">
+      <h3>Ensalada Fresca</h3>
+      <p>$60 MXN</p>
+    </div>
+    <div class="card">
+      <img src="papas.jpg" alt="Papas gajo">
+      <h3>Papas Gajo</h3>
+      <p>$50 MXN</p>
+    </div>
+  </div>
+</section>
+
+<section id="bebidas">
+  <h2>🥤 Bebidas</h2>
+  <div class="menu-grid">
+    <div class="card">
+      <img src="coca.jpg" alt="Coca-Cola">
+      <h3>Coca-Cola 355ml</h3>
+      <p>$20 MXN</p>
+    </div>
+    <div class="card">
+      <img src="agua.jpg" alt="Agua natural">
+      <h3>Agua Natural</h3>
+      <p>$15 MXN</p>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <h2>📍 Contáctanos</h2>
+  <p>📞 Tel: 999-000-0000</p>
+  <p>📍 Mérida, Yucatán</p>
+</section>
+
+<footer>
+  <p>&copy; 2025 Pizza 382 | Síguenos en 
+    <a href="#">Facebook</a> | 
+    <a href="#">Instagram</a> | 
+    <a href="#">TikTok</a>
+  </p>
+</footer>
+
+</body>
+</html>

@@ -4,8 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pizza 382 🍕</title>
+  <!-- Fuente elegante y moderna -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    /* --- ESTILOS GENERALES --- */
+    /* --- VARIABLES --- */
     :root {
       --rojo: #e63946;
       --beige: #f8f4ec;
@@ -14,6 +16,7 @@
       --blanco: #ffffff;
     }
 
+    /* --- RESETEO --- */
     * {
       margin: 0;
       padding: 0;
@@ -21,14 +24,14 @@
     }
 
     body {
-      font-family: 'Arial', sans-serif;
+      font-family: 'Roboto', sans-serif;
       background-color: var(--beige);
       color: var(--oscuro);
       line-height: 1.6;
     }
 
     h1, h2, h3 {
-      font-family: 'Georgia', serif;
+      font-family: 'Playfair Display', serif;
     }
 
     a {
@@ -50,7 +53,7 @@
     /* --- HEADER --- */
     header {
       height: 90vh;
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
                   url('pizza-header.jpg') center/cover no-repeat;
       color: var(--blanco);
       display: flex;
@@ -58,10 +61,11 @@
       justify-content: center;
       align-items: center;
       text-align: center;
+      animation: fadeIn 1.5s ease-in-out;
     }
 
     header h1 {
-      font-size: 3rem;
+      font-size: 3.5rem;
       margin-bottom: 10px;
     }
 
@@ -80,12 +84,17 @@
       color: var(--dorado);
     }
 
-    /* --- MENÚ DE PRODUCTOS --- */
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* --- SECCIÓN CARRUSEL --- */
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
       gap: 20px;
-      margin-top: 40px;
+      padding-bottom: 20px;
+    }
+
+    .carousel::-webkit-scrollbar {
+      display: none;
     }
 
     .card {
@@ -94,11 +103,13 @@
       overflow: hidden;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       text-align: center;
-      transition: transform 0.3s;
+      flex: 0 0 300px;
+      scroll-snap-align: start;
+      transition: transform 0.3s ease;
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: scale(1.05);
     }
 
     .card img {
@@ -117,7 +128,7 @@
       margin-bottom: 10px;
     }
 
-    /* --- CONTACTO & PEDIDOS --- */
+    /* --- CONTACTO Y PEDIDOS --- */
     .pedido {
       display: flex;
       flex-wrap: wrap;
@@ -138,6 +149,22 @@
       margin-bottom: 15px;
       border: 1px solid #ccc;
       border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .pedido form button {
+      background: var(--rojo);
+      color: var(--blanco);
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .pedido form button:hover {
+      background: #c32f3b;
     }
 
     .resumen {
@@ -161,6 +188,25 @@
       color: var(--rojo);
       margin: 0 10px;
     }
+
+    /* --- ANIMACIONES --- */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+      .pedido {
+        flex-direction: column;
+      }
+      .card {
+        flex: 0 0 80%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -170,17 +216,17 @@
   <h1>Pizza 382 🍕</h1>
   <p>Auténtico sabor artesanal en Mérida</p>
   <nav>
-    <a href="#menu">Menú</a>
+    <a href="#pizzas">Pizzas</a>
     <a href="#snacks">Snacks</a>
     <a href="#bebidas">Bebidas</a>
     <a href="#contacto">Contacto</a>
   </nav>
 </header>
 
-<!-- MENÚ DE PIZZAS -->
-<section id="menu">
+<!-- CARRUSEL DE PIZZAS -->
+<section id="pizzas">
   <h2>🍕 Nuestras Pizzas</h2>
-  <div class="menu-grid">
+  <div class="carousel">
     <div class="card">
       <img src="pizza1.jpg" alt="Pizza Especial">
       <h3>Pizza Especial</h3>
@@ -199,10 +245,10 @@
   </div>
 </section>
 
-<!-- SNACKS -->
+<!-- CARRUSEL DE SNACKS -->
 <section id="snacks">
   <h2>🥗 Snacks</h2>
-  <div class="menu-grid">
+  <div class="carousel">
     <div class="card">
       <img src="ensalada.jpg" alt="Ensalada fresca">
       <h3>Ensalada Fresca</h3>
@@ -216,10 +262,10 @@
   </div>
 </section>
 
-<!-- BEBIDAS -->
+<!-- CARRUSEL DE BEBIDAS -->
 <section id="bebidas">
   <h2>🥤 Bebidas</h2>
-  <div class="menu-grid">
+  <div class="carousel">
     <div class="card">
       <img src="coca.jpg" alt="Coca-Cola">
       <h3>Coca-Cola 355ml</h3>
@@ -233,7 +279,7 @@
   </div>
 </section>
 
-<!-- CONTACTO Y PEDIDOS -->
+<!-- FORMULARIO DE PEDIDO -->
 <section id="contacto">
   <h2>📍 Haz tu Pedido</h2>
   <div class="pedido">
